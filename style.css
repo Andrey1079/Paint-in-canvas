@@ -1,7 +1,21 @@
+.drawning-place {
+  position: relative;
+}
 .canvas {
+  z-index: 0;
   width: 800px;
   height: 400px;
   border: 1px solid black;
+}
+.temporary-canvas {
+  z-index: 1;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.canvas-visible {
+  display: block;
 }
 .root {
   display: flex;
