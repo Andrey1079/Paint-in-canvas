@@ -15,4 +15,4 @@
 
 ### Сылка на страницу с проектом
 
-https://github.com/Andrey1079/canvas
+https://andrey1079.github.io/Paint-in-canvas/
