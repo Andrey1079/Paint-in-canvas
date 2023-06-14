@@ -1,12 +1,6 @@
-const canvas = document.querySelector(".canvas");
-const tempCanvas = document.querySelector(".temporary-canvas");
-const ctx = canvas.getContext("2d");
-const tempCtx = tempCanvas.getContext("2d");
-const color = document.querySelector(".input-color");
-const penWidth = document.querySelector(".pen-width");
-const buttonClear = document.querySelector(".button");
+import { canvas, ctx, tempCanvas, tempCtx, color, penWidth, buttonClear } from "./utils/constants.js";
+console.log;
 const buttonRect = document.querySelector(".button-rect");
-const drawningPlaca = document.querySelector(".drawning-place");
 buttonClear.addEventListener("click", clear);
 buttonRect.addEventListener("click", makeRect);
 function clear() {
@@ -29,7 +23,7 @@ function makeRect() {
         tempCanvas.onmousedown = null;
         let xMove = evtInMove.offsetX;
         let yMove = evtInMove.offsetY;
-        tempCtx.rect(xStart, yStart, Math.abs(xStart - xMove), Math.abs(yStart - yMove));
+        tempCtx.rect(xStart, yStart, xMove - xStart, yMove - yStart);
         tempCtx.clearRect(0, 0, 800, 400);
         tempCtx.stroke();
       };
@@ -38,8 +32,7 @@ function makeRect() {
         ctx.beginPath();
         let xEnd = evtOnUp.offsetX;
         let yEnd = evtOnUp.offsetY;
-        console.log(xEnd, yEnd);
-        ctx.rect(xStart, yStart, Math.abs(xEnd - xStart), Math.abs(yStart - yEnd));
+        ctx.rect(xStart, yStart, xEnd - xStart, yEnd - yStart);
         ctx.stroke();
         tempCanvas.classList.remove("canvas-visible");
         canvas.onmouseup = null;
